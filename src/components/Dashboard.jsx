@@ -90,7 +90,7 @@ export default function Dashboard() {
           <div>
             <p className="text-[9px] font-bold text-blue-300 uppercase tracking-widest leading-none">RBI Grievance Portal</p>
             <p className="text-white font-black text-sm leading-tight mt-0.5">
-              GrievanceGuard
+              Grievance Guard
             </p>
           </div>
         </div>

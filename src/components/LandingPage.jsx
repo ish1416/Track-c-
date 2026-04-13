@@ -3,7 +3,7 @@ import GovtStrip from './GovtStrip'
 import AshokaChakra from './AshokaChakra'
 
 const STATS = [
-  { value: '13+', label: 'Indian Languages', sub: 'Supported by AI' },
+  { value: '7', label: 'Indian Languages', sub: 'Supported by AI' },
   { value: '99%', label: 'Accuracy Rate',    sub: 'NLP Transcription' },
   { value: '< 5s', label: 'Processing Time', sub: 'Per Complaint' },
   { value: 'IOS 2021', label: 'RBI Compliant', sub: 'Ombudsman Scheme' },
