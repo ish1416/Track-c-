@@ -208,9 +208,14 @@ export default function Dashboard() {
                   <Shield className="w-3.5 h-3.5 text-[#1a237e]" />
                   <span className="text-[11px] font-bold text-[#1a237e]">RBI IOS 2021</span>
                 </div>
-                <div className="hidden md:flex items-center gap-2 bg-[#fffde7] border border-[#fdd835] rounded-lg px-3 py-1.5">
-                  <img src="/logo11.png" alt="YellowSense" className="h-5 w-auto object-contain" />
-                  <span className="text-[10px] font-bold text-[#f57f17]">YellowSense</span>
+                <div className="hidden md:flex items-center gap-2.5 bg-[#fffde7] border-2 border-[#fdd835] rounded-xl px-3 py-2 shadow-sm">
+                  <div className="bg-white rounded-lg px-1.5 py-0.5 flex items-center justify-center">
+                    <img src="/logo11.png" alt="YellowSense" className="h-6 w-auto object-contain" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-black text-[#e65100] leading-none">YellowSense</p>
+                    <p className="text-[9px] font-bold text-[#f57f17] leading-none mt-0.5">Technologies Pvt. Ltd.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -239,15 +244,16 @@ export default function Dashboard() {
 
           {/* Stats bar */}
           <div className="bg-white border-b border-gray-100 flex-shrink-0">
-            <div className="px-4 sm:px-6 py-3 grid grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="px-4 sm:px-6 py-4 grid grid-cols-2 lg:grid-cols-4 gap-3">
               {STATS.map(s => (
-                <div key={s.label} className={`stat-card border ${s.border}`}>
-                  <div className={`w-9 h-9 rounded-xl ${s.bg} flex items-center justify-center flex-shrink-0`}>
-                    <s.icon className={`w-4.5 h-4.5 ${s.color}`} style={{ width: 18, height: 18 }} />
+                <div key={s.label} className={`rounded-xl border-2 ${s.border} p-4 flex items-center gap-3 bg-white hover:shadow-md transition-shadow`}>
+                  <div className={`w-12 h-12 rounded-xl ${s.bg} flex items-center justify-center flex-shrink-0 border ${s.border}`}>
+                    <s.icon className={`${s.color}`} style={{ width: 22, height: 22 }} />
                   </div>
                   <div>
-                    <p className={`text-lg font-black ${s.color} leading-none`}>{s.value}</p>
-                    <p className="text-[10px] text-gray-400 font-semibold mt-0.5">{s.label}</p>
+                    <p className={`text-2xl font-black ${s.color} leading-none tracking-tight`}>{s.value}</p>
+                    <p className="text-[11px] text-gray-500 font-semibold mt-1 leading-tight">{s.label}</p>
+                    <p className="text-[9px] text-gray-300 uppercase tracking-widest mt-0.5 font-bold">GrievanceGuard</p>
                   </div>
                 </div>
               ))}
