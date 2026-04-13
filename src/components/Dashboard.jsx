@@ -341,40 +341,137 @@ export default function Dashboard() {
 
             {/* ── OVERVIEW TAB ── */}
             {tab === 'overview' && (
-              <>
-                <div className="mb-5">
-                  <h1 className="text-xl font-black text-gray-900 flex items-center gap-2">
-                    <LayoutDashboard className="w-5 h-5 text-[#1a237e]" /> Dashboard
-                  </h1>
-                  <p className="text-gray-400 text-sm mt-0.5">Welcome back, {user?.name ?? 'Citizen'}</p>
+              <div className="space-y-5">
+
+                {/* Welcome banner */}
+                <div className="govt-gradient rounded-xl p-5 flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-blue-300 text-[10px] font-bold uppercase tracking-widest mb-1">Citizen Portal · RBI IOS 2021</p>
+                    <h1 className="text-white font-black text-lg leading-tight">Welcome, {user?.name ?? 'Citizen'}</h1>
+                    <p className="text-blue-200 text-xs mt-1">File and track your banking grievances securely</p>
+                    <button onClick={() => switchTab('complaint')}
+                      className="mt-3 flex items-center gap-2 bg-[#FF9933] hover:bg-orange-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors">
+                      <Mic className="w-3.5 h-3.5" /> File a Complaint Now
+                    </button>
+                  </div>
+                  <div className="hidden sm:block opacity-20">
+                    <AshokaChakra size={80} color="#ffffff" />
+                  </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+
+                {/* Quick action cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {[
-                    { icon: Mic,          label: 'File a Voice Complaint', desc: 'Speak or type your banking complaint', tab: 'complaint', color: 'text-blue-600', bg: 'bg-blue-50', border: 'border-blue-100' },
-                    { icon: FileText,     label: 'My Complaints',          desc: 'View all your filed complaints',       tab: 'mycomplaints', color: 'text-purple-600', bg: 'bg-purple-50', border: 'border-purple-100' },
-                    { icon: Search,       label: 'Track Status',           desc: 'Check status by reference ID',         tab: 'status',       color: 'text-green-600',  bg: 'bg-green-50',  border: 'border-green-100' },
+                    { icon: Mic,      label: 'File a Voice Complaint', desc: 'Speak or type your banking complaint in any language', tab: 'complaint',    color: 'text-blue-600',   bg: 'bg-blue-50',   border: 'border-blue-100',   accent: 'bg-blue-600' },
+                    { icon: FileText, label: 'My Complaints',          desc: 'View status of all complaints filed under your account', tab: 'mycomplaints', color: 'text-purple-600', bg: 'bg-purple-50', border: 'border-purple-100', accent: 'bg-purple-600' },
+                    { icon: Search,   label: 'Track Status',           desc: 'Enter reference ID to check real-time complaint status', tab: 'status',       color: 'text-green-600',  bg: 'bg-green-50',  border: 'border-green-100',  accent: 'bg-green-600' },
                   ].map(c => (
                     <button key={c.tab} onClick={() => switchTab(c.tab)}
-                      className={`bg-white rounded-xl border ${c.border} shadow-sm p-5 text-left hover:shadow-md transition-shadow`}>
-                      <div className={`w-10 h-10 rounded-xl ${c.bg} flex items-center justify-center mb-3`}>
+                      className={`bg-white rounded-xl border ${c.border} shadow-sm p-5 text-left hover:shadow-md transition-all hover:-translate-y-0.5 group`}>
+                      <div className={`w-11 h-11 rounded-xl ${c.bg} flex items-center justify-center mb-3`}>
                         <c.icon className={`w-5 h-5 ${c.color}`} />
                       </div>
-                      <p className="font-bold text-gray-800 text-sm">{c.label}</p>
-                      <p className="text-gray-400 text-xs mt-1">{c.desc}</p>
+                      <p className="font-black text-gray-800 text-sm">{c.label}</p>
+                      <p className="text-gray-400 text-xs mt-1 leading-relaxed">{c.desc}</p>
+                      <p className={`text-xs font-bold mt-3 ${c.color} group-hover:underline`}>Get Started →</p>
                     </button>
                   ))}
                 </div>
-                <div className="bg-[#e8eaf6] border border-[#c5cae9] rounded-xl p-4">
-                  <p className="text-xs font-bold text-[#1a237e] flex items-center gap-1.5 mb-2">
-                    <Info className="w-3.5 h-3.5" /> RBI Integrated Ombudsman Scheme, 2021
-                  </p>
-                  <p className="text-gray-600 text-xs leading-relaxed">
-                    All complaints are processed under the RBI IOS 2021 framework.
-                    For urgent issues call <strong className="font-mono">14440</strong> or visit{' '}
-                    <a href="https://cms.rbi.org.in" target="_blank" rel="noreferrer" className="text-[#1a237e] font-semibold underline">cms.rbi.org.in</a>.
-                  </p>
+
+                {/* Process steps + RBI info row */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+                  {/* How it works */}
+                  <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                    <div className="card-header-gradient px-4 py-2.5">
+                      <span className="text-xs font-bold text-white uppercase tracking-wide">How It Works</span>
+                    </div>
+                    <div className="p-4 space-y-3">
+                      {[
+                        { n: '01', title: 'Record or Type',      desc: 'Speak your complaint in any Indian language or type it' },
+                        { n: '02', title: 'AI Understands',      desc: 'AI transcribes, detects language and understands your issue' },
+                        { n: '03', title: 'Guided Conversation', desc: 'AI asks follow-up questions to collect all required details' },
+                        { n: '04', title: 'Complaint Filed',     desc: 'Receive a unique Reference ID to track your complaint' },
+                      ].map(s => (
+                        <div key={s.n} className="flex items-start gap-3">
+                          <span className="w-7 h-7 rounded-full bg-[#1a237e] text-white text-[10px] font-black flex items-center justify-center flex-shrink-0 mt-0.5">{s.n}</span>
+                          <div>
+                            <p className="text-xs font-bold text-gray-800">{s.title}</p>
+                            <p className="text-[11px] text-gray-400 mt-0.5">{s.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* RBI info + helplines */}
+                  <div className="space-y-4">
+                    <div className="bg-[#e8eaf6] border border-[#c5cae9] rounded-xl p-4 space-y-3">
+                      <p className="text-xs font-black text-[#1a237e] flex items-center gap-1.5">
+                        <Shield className="w-3.5 h-3.5" /> RBI Integrated Ombudsman Scheme, 2021
+                      </p>
+                      <p className="text-gray-600 text-xs leading-relaxed">
+                        All complaints are processed under the RBI IOS 2021 framework. Authorised by the Reserve Bank of India under the IT Act, 2000.
+                      </p>
+                      <a href="https://cms.rbi.org.in" target="_blank" rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1a237e] hover:underline">
+                        <ExternalLink className="w-3 h-3" /> Visit CMS RBI Portal
+                      </a>
+                    </div>
+
+                    <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+                      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Emergency Helplines</p>
+                      <div className="space-y-2.5">
+                        {[
+                          { label: 'RBI Sachet Helpline',  number: '14440', color: 'bg-blue-50 border-blue-200 text-blue-700' },
+                          { label: 'Cyber Crime Helpline', number: '1930',  color: 'bg-red-50 border-red-200 text-red-700' },
+                        ].map(h => (
+                          <div key={h.label} className={`flex items-center justify-between rounded-lg px-3 py-2 border ${h.color}`}>
+                            <div className="flex items-center gap-2">
+                              <Phone className="w-3.5 h-3.5" />
+                              <span className="text-xs font-semibold">{h.label}</span>
+                            </div>
+                            <span className="font-black font-mono text-sm">{h.number}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+                      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Supported Languages</p>
+                      <div className="flex flex-wrap gap-2">
+                        {['English', 'Hindi', 'Tamil', 'Gujarati', 'Bengali', 'Marathi', 'Punjabi'].map(l => (
+                          <span key={l} className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#e8eaf6] text-[#3949ab] border border-[#c5cae9]">{l}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </>
+
+                {/* Portal links */}
+                <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                  <div className="card-header-gradient px-4 py-2.5">
+                    <span className="text-xs font-bold text-white uppercase tracking-wide">Official Government Portals</span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y divide-gray-50">
+                    {[
+                      { label: 'RBI Sachet',         href: 'https://sachet.rbi.org.in',   desc: 'Report illegal schemes' },
+                      { label: 'CMS RBI',            href: 'https://cms.rbi.org.in',       desc: 'Official complaint portal' },
+                      { label: 'Cyber Crime Portal', href: 'https://cybercrime.gov.in',    desc: 'Report cyber fraud' },
+                      { label: 'CERT-In',            href: 'https://cert-in.org.in',       desc: 'Cyber security incidents' },
+                    ].map(p => (
+                      <a key={p.label} href={p.href} target="_blank" rel="noreferrer"
+                        className="flex flex-col gap-1 px-4 py-3 hover:bg-[#f5f6ff] transition-colors group">
+                        <span className="text-xs font-bold text-[#1a237e] group-hover:underline flex items-center gap-1">
+                          <ExternalLink className="w-3 h-3 opacity-60" /> {p.label}
+                        </span>
+                        <span className="text-[10px] text-gray-400">{p.desc}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
             )}
 
             {/* ── MY COMPLAINTS TAB ── */}
