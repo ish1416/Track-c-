@@ -90,16 +90,15 @@ export function useConversation() {
         // Store session_id in ref immediately — available to next call without re-render
         if (resp.session_id) sessionIdRef.current = resp.session_id
       } else {
-        // Subsequent messages — continue existing session
+        // Subsequent messages — session is server-side (user-scoped), just send message
         const res = await fetch('/conversation/message', {
           method: 'POST',
           headers: { ...authHeaders, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ session_id: sid, message: userText }),
+          body: JSON.stringify({ message: userText }),
         })
         resp = await res.json()
         if (!res.ok) {
-          // Session expired — reset and restart automatically
-          if (resp.detail?.includes('Session not found')) {
+          if (resp.detail?.includes('Session not found') || resp.detail?.includes('session')) {
             sessionIdRef.current = null
             throw new Error('Session expired. Please send your message again to start fresh.')
           }

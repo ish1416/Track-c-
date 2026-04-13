@@ -44,12 +44,15 @@ export function useAdmin() {
     }
   }, [token])
 
-  const updateComplaintStatus = useCallback(async (complaintId, status) => {
+  const updateComplaintStatus = useCallback(async (complaintId, status, resolution = '', assignedDepartment = '') => {
     try {
+      const body = { status }
+      if (resolution) body.resolution = resolution
+      if (assignedDepartment) body.assigned_department = assignedDepartment
       const res = await fetch(`${BASE}/admin/complaints/${complaintId}`, {
         method: 'PATCH',
         headers,
-        body: JSON.stringify({ status }),
+        body: JSON.stringify(body),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.detail ?? 'Failed to update status')

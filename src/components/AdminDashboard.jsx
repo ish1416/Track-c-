@@ -54,6 +54,8 @@ const STATUS_OPTIONS = ['FILED', 'UNDER_REVIEW', 'IN_PROGRESS', 'RESOLVED', 'CLO
 function ComplaintDetailModal({ complaint, onClose, onStatusUpdate, fetchTimeline, token }) {
   const [timeline, setTimeline]       = useState(null)
   const [status, setStatus]           = useState(complaint?.status?.toUpperCase() ?? 'FILED')
+  const [resolution, setResolution]   = useState(complaint?.resolution ?? '')
+  const [department, setDepartment]   = useState(complaint?.assigned_department ?? '')
   const [saving, setSaving]           = useState(false)
   const [aiRes, setAiRes]             = useState(null)
   const [aiLoading, setAiLoading]     = useState(false)
@@ -68,7 +70,7 @@ function ComplaintDetailModal({ complaint, onClose, onStatusUpdate, fetchTimelin
 
   async function handleSave() {
     setSaving(true)
-    await onStatusUpdate(complaint.id, status)
+    await onStatusUpdate(complaint.id, status, resolution, department)
     setSaving(false)
     onClose()
   }
@@ -192,6 +194,11 @@ function ComplaintDetailModal({ complaint, onClose, onStatusUpdate, fetchTimelin
                       {aiRes.similar_cases_count} similar cases
                     </span>
                   )}
+                  {aiRes.regulatory_reference && (
+                    <span className="font-bold text-orange-700 bg-orange-50 border border-orange-200 rounded-full px-2 py-0.5">
+                      📋 {aiRes.regulatory_reference}
+                    </span>
+                  )}
                 </div>
                 {!approved ? (
                   <button
@@ -238,9 +245,9 @@ function ComplaintDetailModal({ complaint, onClose, onStatusUpdate, fetchTimelin
             </div>
           )}
 
-          {/* Status update */}
-          <div>
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Update Status</p>
+          {/* Status + Resolution + Department update */}
+          <div className="space-y-3">
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Update Complaint</p>
             <div className="flex gap-2">
               <select
                 value={status}
@@ -251,14 +258,28 @@ function ComplaintDetailModal({ complaint, onClose, onStatusUpdate, fetchTimelin
                   <option key={s} value={s}>{s.replace('_', ' ')}</option>
                 ))}
               </select>
-              <button
-                onClick={handleSave}
-                disabled={saving}
-                className="px-4 py-2 bg-[#1a237e] text-white text-sm font-bold rounded-lg hover:bg-[#283593] disabled:opacity-50 transition-colors"
-              >
-                {saving ? 'Saving…' : 'Save'}
-              </button>
             </div>
+            <input
+              type="text"
+              value={department}
+              onChange={e => setDepartment(e.target.value)}
+              placeholder="Assigned Department (e.g. Banking Operations)"
+              className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#1a237e]/30"
+            />
+            <textarea
+              value={resolution}
+              onChange={e => setResolution(e.target.value)}
+              placeholder="Resolution text (optional)"
+              rows={2}
+              className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#1a237e]/30 resize-none"
+            />
+            <button
+              onClick={handleSave}
+              disabled={saving}
+              className="w-full px-4 py-2 bg-[#1a237e] text-white text-sm font-bold rounded-lg hover:bg-[#283593] disabled:opacity-50 transition-colors"
+            >
+              {saving ? 'Saving…' : 'Save Changes'}
+            </button>
           </div>
         </div>
       </div>
