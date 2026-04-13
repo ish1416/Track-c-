@@ -571,7 +571,7 @@ export default function Dashboard() {
                     Enter your reference ID to check the current status
                   </p>
                 </div>
-                <div className="max-w-xl">
+                <div className="max-w-2xl">
                   <StatusTracker />
                 </div>
               </>
