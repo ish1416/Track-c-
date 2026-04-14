@@ -75,7 +75,7 @@ export default function LandingPage({ onGetStarted }) {
             <AshokaChakra size={38} color="#1a237e" />
             <div>
               <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-none">RBI Citizen Grievance Portal</p>
-              <p className="text-[#1a237e] font-black text-base leading-tight">GrievanceGuard <span className="text-[#FF9933]">Track C</span></p>
+              <p className="text-[#1a237e] font-black text-base leading-tight">BharatTrust AI <span className="text-[#FF9933]">Track C</span></p>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -192,7 +192,7 @@ export default function LandingPage({ onGetStarted }) {
       <section className="bg-[#f8f9ff] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="section-label mb-2">Why GrievanceGuard</p>
+            <p className="section-label mb-2">Why BharatTrust AI</p>
             <h2 className="text-3xl font-black text-[#1a237e]">Built for Every Indian Citizen</h2>
             <p className="text-gray-500 mt-3 max-w-xl mx-auto">
               A modern, accessible grievance system that removes barriers between citizens and the RBI complaint process.
@@ -245,7 +245,7 @@ export default function LandingPage({ onGetStarted }) {
           <AshokaChakra size={56} color="rgba(255,255,255,0.6)" />
           <h2 className="text-3xl font-black mt-6 mb-3">Ready to File Your Complaint?</h2>
           <p className="text-blue-200 mb-8 text-lg">
-            Join thousands of citizens using GrievanceGuard to resolve banking grievances faster.
+            Join thousands of citizens using BharatTrust AI to resolve banking grievances faster.
           </p>
           <button onClick={onGetStarted} className="btn-primary text-base py-3.5 px-10">
             Get Started — It's Free <ArrowRight className="w-5 h-5" />
@@ -263,7 +263,7 @@ export default function LandingPage({ onGetStarted }) {
             <div className="flex items-center gap-2">
               <AshokaChakra size={28} color="rgba(255,255,255,0.7)" />
               <div>
-                <p className="font-black text-white text-sm">GrievanceGuard</p>
+                <p className="font-black text-white text-sm">BharatTrust AI</p>
                 <p className="text-blue-400 text-[10px]">Track C · RBI Citizen Portal</p>
               </div>
             </div>
@@ -301,7 +301,7 @@ export default function LandingPage({ onGetStarted }) {
         </div>
         <div className="border-t border-white/10 bg-black/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] text-blue-500">
-            <span>© 2025 GrievanceGuard by YellowSense Technologies. All rights reserved.</span>
+            <span>© 2025 BharatTrust AI by YellowSense Technologies. All rights reserved.</span>
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="w-3 h-3 text-green-500" />
               For official use only · Unauthorized access prohibited under IT Act, 2000

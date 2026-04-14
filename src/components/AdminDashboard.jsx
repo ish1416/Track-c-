@@ -338,7 +338,7 @@ export default function AdminDashboard() {
           <div>
             <p className="text-[9px] font-bold text-blue-300 uppercase tracking-widest leading-none">RBI Grievance Portal</p>
             <p className="text-white font-black text-sm leading-tight mt-0.5">
-              GrievanceGuard
+              BharatTrust AI
             </p>
           </div>
         </div>
@@ -596,7 +596,7 @@ export default function AdminDashboard() {
           {/* Footer */}
           <div className="bg-[#060e35] text-white flex-shrink-0">
             <div className="px-4 sm:px-6 py-2 flex items-center justify-between text-[10px]">
-              <span className="text-blue-400">© 2025 GrievanceGuard by YellowSense Technologies</span>
+              <span className="text-blue-400">© 2025 BharatTrust AI by YellowSense Technologies</span>
               <span className="text-blue-500">Admin Portal · IT Act, 2000</span>
             </div>
             <div className="tricolor-bar" />

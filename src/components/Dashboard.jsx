@@ -90,7 +90,7 @@ export default function Dashboard() {
           <div>
             <p className="text-[9px] font-bold text-blue-300 uppercase tracking-widest leading-none">RBI Grievance Portal</p>
             <p className="text-white font-black text-sm leading-tight mt-0.5">
-              Grievance Guard
+              BharatTrust AI
             </p>
           </div>
         </div>
@@ -195,7 +195,7 @@ export default function Dashboard() {
                   <Globe className="w-3 h-3" />
                   <span>Home</span>
                   <ChevronRight className="w-3 h-3" />
-                  <span>GrievanceGuard</span>
+                  <span>BharatTrust AI</span>
                   <ChevronRight className="w-3 h-3" />
                   <span className="font-bold text-[#1a237e]">
                     {{ overview: 'Dashboard', complaint: 'Voice Complaint', mycomplaints: 'My Complaints', status: 'Track Status' }[tab]}
@@ -228,7 +228,7 @@ export default function Dashboard() {
                   <div className="ticker-track flex gap-16 whitespace-nowrap text-[11px] text-[#5d4037] font-medium">
                     {[
                       '⚠ RBI Advisory: File complaints only through official portals',
-                      '📢 GrievanceGuard Track C — AI Voice Complaint System now live',
+                      '📢 BharatTrust AI Track C — AI Voice Complaint System now live',
                       '🛡 Authorised under RBI Integrated Ombudsman Scheme, 2021',
                       '📞 RBI Helpline: 14440 · Cyber Crime: 1930',
                       '✅ All complaints processed under IT Act, 2000',
@@ -253,7 +253,7 @@ export default function Dashboard() {
                   <div>
                     <p className={`text-2xl font-black ${s.color} leading-none tracking-tight`}>{s.value}</p>
                     <p className="text-[11px] text-gray-500 font-semibold mt-1 leading-tight">{s.label}</p>
-                    <p className="text-[9px] text-gray-300 uppercase tracking-widest mt-0.5 font-bold">GrievanceGuard</p>
+                    <p className="text-[9px] text-gray-300 uppercase tracking-widest mt-0.5 font-bold">BharatTrust AI</p>
                   </div>
                 </div>
               ))}
@@ -588,7 +588,7 @@ export default function Dashboard() {
           <div className="bg-[#060e35] text-white flex-shrink-0">
             <div className="px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2 text-[10px]">
               <div className="flex items-center gap-4">
-                <span className="text-blue-400">© 2025 GrievanceGuard by YellowSense Technologies</span>
+                <span className="text-blue-400">© 2025 BharatTrust AI by YellowSense Technologies</span>
                 <span className="hidden sm:flex items-center gap-3 text-blue-500">
                   {PORTAL_LINKS.map(p => (
                     <a key={p.label} href={p.href} target="_blank" rel="noreferrer"

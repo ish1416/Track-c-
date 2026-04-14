@@ -56,7 +56,7 @@ export default function AuthPage({ onBack }) {
               <div>
                 <p className="text-[10px] font-bold text-blue-300 uppercase tracking-widest">RBI Citizen Grievance Portal</p>
                 <p className="text-white font-black text-xl leading-tight">
-                  GrievanceGuard <span className="text-[#FF9933]">Track C</span>
+                  BharatTrust AI <span className="text-[#FF9933]">Track C</span>
                 </p>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function AuthPage({ onBack }) {
               <AshokaChakra size={32} color="#1a237e" />
               <div>
                 <p className="text-[9px] text-gray-400 uppercase tracking-widest font-bold">RBI Grievance Portal</p>
-                <p className="text-[#1a237e] font-black text-sm">GrievanceGuard Track C</p>
+                <p className="text-[#1a237e] font-black text-sm">BharatTrust AI Track C</p>
               </div>
             </div>
             {onBack && (
