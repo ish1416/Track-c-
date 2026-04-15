@@ -56,7 +56,7 @@ export default function AuthPage({ onBack }) {
               <div>
                 <p className="text-[10px] font-bold text-blue-300 uppercase tracking-widest">RBI Citizen Grievance Portal</p>
                 <p className="text-white font-black text-xl leading-tight">
-                  BharatTrust AI <span className="text-[#FF9933]">Track C</span>
+                  BharatTrust <span className="text-[#FF9933]">AI</span>
                 </p>
               </div>
             </div>
