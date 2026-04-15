@@ -75,7 +75,7 @@ export default function LandingPage({ onGetStarted }) {
             <AshokaChakra size={38} color="#1a237e" />
             <div>
               <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-none">RBI Citizen Grievance Portal</p>
-              <p className="text-[#1a237e] font-black text-base leading-tight">BharatTrust AI <span className="text-[#FF9933]">Track C</span></p>
+              <p className="text-[#1a237e] font-black text-base leading-tight">BharatTrust AI</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
